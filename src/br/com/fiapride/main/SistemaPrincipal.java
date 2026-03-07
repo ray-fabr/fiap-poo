@@ -28,33 +28,32 @@ public class SistemaPrincipal {
 	   
 		
 		
-		Tv tv1 = new Tv();
-        tv1.polegadas = 95;
-        tv1.smart = true;
-        tv1.canalAtual = 5;
-        tv1.ligada = true;
-        tv1.tamanho = 241;
+		Tv tv1 = new Tv(95,true,100,false,5);
 
-        Tv tv2 = new Tv();
-        tv2.polegadas = 85;
-        tv2.smart = false;
-        tv2.canalAtual = 4;
-        tv2.ligada = true;
-        tv2.tamanho = 180;
+        Tv tv2 = new Tv(95,true,100,true,5);
+        
+        
+        
 
-        // Exibindo os dados no Console
+
         System.out.println("--- Sistema TV 1 ---");
         System.out.println("Polegadas: " + tv1.polegadas);
         System.out.println("Tv smart:" + tv1.smart);
-        System.out.println("A tv está ligada:" + tv1.ligada);
-        System.out.println("Canal Atual:" + tv1.canalAtual);
+        System.out.println("A tv está ligada: " + tv1.ligada);
+        tv1.ligarTv(true); 
+        System.out.println("TV Ligada!");
+        System.out.println("Canal Atual: " + tv1.canalAtual);
+        tv1.mudarCanal(7);
+        System.out.println("Novo Canal: " + tv1.canalAtual);
         System.out.println("O tamanho da tv em cm:" + tv1.tamanho);
         System.out.println("--- Sistema TV 2 ---");
         System.out.println("Polegadas:" + tv2.polegadas);
         System.out.println("Tv smart:" + tv2.smart);
-        System.out.println("A tv está ligada:" + tv2.ligada);
-        System.out.println("Canal Atual:" + tv2.canalAtual);
-        System.out.println("O tamanho da tv em cm:" + tv2.tamanho);
+        System.out.println("A tv está ligada: " + tv2.ligada);
+        tv2.ligarTv(true); 
+        System.out.println("TV Ligada!");
+        System.out.println("Canal Atual: " + tv2.canalAtual);
+        tv2.mudarCanal(7);
 	}
 
 }
