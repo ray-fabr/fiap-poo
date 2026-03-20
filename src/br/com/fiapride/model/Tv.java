@@ -7,12 +7,10 @@ public class Tv {
     public boolean ligada;
     public int canalAtual;
     
-    public Tv(int polegadas, boolean smart, double tamanho, boolean ligada, int canalAtual) {
+    public Tv(int polegadas, boolean smart, double tamanho) {
     	this.setPolegadas(polegadas);
     	this.setSmart(smart);
     	this.setTamanho(tamanho);
-    	this.setLigada(ligada);
-    	this.setCanalAtual(canalAtual);
     }
     
 // --- MÉTODOS GET (PRECISAM SER PUBLIC E TER RETORNO) ---
@@ -40,6 +38,10 @@ public class Tv {
     // --- MÉTODOS SET (PODEM SER PRIVATE) ---
     
     private void setPolegadas(int polegadas) {
+        if (polegadas <= 0) {
+        	System.out.println("Erro polegadas inexistente");
+        	return;
+        }
         this.polegadas = polegadas;
     }
 
@@ -51,30 +53,26 @@ public class Tv {
         this.tamanho = tamanho;
     }
 
-    private void setLigada(boolean ligada) {
-        this.ligada = ligada;
-    }
-
-    private void setCanalAtual(int canalAtual) {
-        this.canalAtual = canalAtual;
-    }
     
-    public void setLigarTv(boolean lagada) {
-    	if (this.ligada == false) {
-    		System.out.println("Eror: A tv está desligada");
-    	}
-    	else {
+    public void setLigarTv(boolean status) {
+    	this.ligada = status;
+    	
+    	if (this.ligada) {
     		System.out.println("Tv ligada");
     	}
+    	else {
+    		System.out.println("Eror: A tv está desligada");
+    	}
     }
     
-    public void setMudarCanal(int canalAtual) {
+    public void setMudarCanal(int canal) {
+    	this.canalAtual = canal;
+    	
     	if (this.ligada == false) {
     		System.out.println("Eror:Não é possivel mudar de canal pois a tv está desligada");
     		return;
     	}
     	else {
-    		this.canalAtual = canalAtual;
     		System.out.println("Tv ligada no canal " + this.canalAtual);
     	}
     }
